@@ -1,11 +1,11 @@
 $(document).ready(function() {
     $('#myselector').on('change', function() {
-        var selected = $(this).val();
+        var chosen = $(this).val();
         var multiple = $(this).attr('data-ismultiple');
-        if ( multiple && (selected != "") ) {
-            selectedHTML = generateHTML(selected);
+        if ( multiple && (chosen != "")  && isUnique(chosen) ) {
+            selectedHTML = generateHTML(chosen);
 
-            $('.selected-elements').append(selectedHTML);
+            $('#selected-elements').append(selectedHTML);
         }
     });
     function generateID() {
@@ -24,5 +24,20 @@ $(document).ready(function() {
         var source = $(this).attr('data-id');
         $('#' + source ).remove();
     });
-    //  next thing to do is to disable multiple selects
+    
+    // This function checks if a selected value has already been selected before or not
+    function isUnique( element ){
+        var status;
+        $('#selected-elements > span').each(function(){
+            var value = $(this).attr('data-value');
+            if( element == value){
+                status = 'not unique';
+            }
+        });
+        if( status == 'not unique'){
+            return false;
+        }else{
+            return true;
+        }
+    }
 });
