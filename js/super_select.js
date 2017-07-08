@@ -16,7 +16,13 @@ $(document).ready(function() {
     function generateHTML(value) {
         // generate a unique id for this element 
         var elem_id = generateID();
-        var result_html = '<span id="'+ elem_id  +'" data-value="'+ value +'" class="signle-element">'+ value +'</span>';
+        var result_html = '<span id="'+ elem_id  +'" data-value="'+ value +'" class="single-element">'+ value + '&nbsp';
+        result_html += '<button class="delete" type="button" data-id="'+ elem_id +'" >&times;</button></span>';
         return result_html;
     }
+    $('body').on('click','.delete', function(){
+        var source = $(this).attr('data-id');
+        $('#' + source ).remove();
+    });
+    //  next thing to do is to disable multiple selects
 });
