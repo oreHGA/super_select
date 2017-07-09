@@ -30,3 +30,16 @@ button {
 .single-element {
     padding-left: 10px;
 }
+
+#selector-wrapper {
+    background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+    height: 34px;
+    width: 240px;
+}
+
+#selector-wrapper select {
+    border: 1px solid #ccc;
+    font-size: 16px;
+    height: 34px;
+    width: 268px;
+}
