@@ -4,7 +4,7 @@
 <head>
     <title>JS Super Selctor </title>
     <link href="css/ogstyle.css" rel="stylesheet">
-    <link href="css/selectorstyle.css" rel="stylesheet">
+    <link href="css/super_select.css" rel="stylesheet">
 </head>
 
 <body>
@@ -12,8 +12,8 @@
         <h1>The best multiple selector you're ever going to use</h1>
         <h2>The selected options do not get cleared away when the select box is <em>refreshed</em> or populated with <em>new data</em></h2>
         <!-- TODO: Main point of this is that when the select box is refreshed, the options still stay -->
-        <div class="selector">
-            <select id="myselector" data-ismultiple="true" class="select-box">
+        <div id="selector-wrapper">
+            <select id="myselector" data-name="whatever" data-ismultiple="true" class="select-box">
                 <option value="" selected>Select your values</option>
                 <option value="Lagos">Lagos</option>
                 <option value="Port Harcourt">Port Harcourt</option>
@@ -23,7 +23,6 @@
                 <option value="Ekiti">Ekiti</option>
             </select>
         </div>
-        <div id="selected-elements"></div>
     </div>
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/super_select.js"></script>
