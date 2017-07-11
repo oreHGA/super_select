@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('#update_select').click(function() {
         // loop through the list and add replace the select options 
-        var optionHTML = '<option value="" disabled selected>Select your values</option>'
+        var optionHTML ='<option value="" disabled="true" selected>Select your values</option>';
         $('#new-options > input').each(function() {
             var value = $(this).val();
             optionHTML += '<option value="' + value + '">' + value + '</option>';
