@@ -49,28 +49,32 @@ $(document).ready(function() {
 
     // this function is used to feed the selected values back into the select box
     $('body').on('click', '#submit_options', function() {
-        $('#myselector').hide();
-        $('#selected-elements').hide();
-        var name = $('#myselector').attr('data-name');
-        var finalHTML;
-        var name = $('#myselector').attr('data-name');
-        var selected_items = [];
-        var selectedHTML;
-        if ((name != "") && (name != undefined)) {
-            selectedHTML = '<select id="final-select" multiple name="' + name + '" class="mselect-box" >';
-        } else {
-            selectedHTML = '<select id="final-select" multiple class="mselect-box" >';
+        if($('#selected-elements .single-element').length > 0){ 
+            $('#myselector').hide();
+            $('#selected-elements').hide();
+            var name = $('#myselector').attr('data-name');
+            var finalHTML;
+            var name = $('#myselector').attr('data-name');
+            var selected_items = [];
+            var selectedHTML;
+            if ((name != "") && (name != undefined)) {
+                selectedHTML = '<select id="final-select" multiple name="' + name + '" class="mselect-box" >';
+            } else {
+                selectedHTML = '<select id="final-select" multiple class="mselect-box" >';
+            }
+            $('#selected-elements > span').each(function() {
+                selectedHTML += '<option selected value="' + $(this).attr('data-value') + '">' + $(this).attr('data-value') + '</option>';
+            });
+            selectedHTML += '</select>';
+            // $('#myselector').hide();
+            $('#selector-wrapper').append(selectedHTML);
+            // now we need to add the edit button 
+            var edit_optionsHTML = '<button id="edit_options" class="extra-button">Edit Options</button>';
+            $('#selector-wrapper').append(edit_optionsHTML);
+            // $('#selected-elements').hide();
+        }else{
+            alert('Please select some options');
         }
-        $('#selected-elements > span').each(function() {
-            selectedHTML += '<option selected value="' + $(this).attr('data-value') + '">' + $(this).attr('data-value') + '</option>';
-        });
-        selectedHTML += '</select>';
-        // $('#myselector').hide();
-        $('#selector-wrapper').append(selectedHTML);
-        // now we need to add the edit button 
-        var edit_optionsHTML = '<button id="edit_options" class="extra-button">Edit Options</button>';
-        $('#selector-wrapper').append(edit_optionsHTML);
-        // $('#selected-elements').hide();
     });
     // ̣ this allows the user to edit his/her selections
     $('body').on('click', '#edit_options', function() {
